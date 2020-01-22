@@ -1,8 +1,6 @@
 #include<iostream>
 #include<cassert>
 
-using namespace std;
-
 /*
 La somme en question est égal à :
 \sum_{k=1}^333 3k + \sum_{k=1}^199 5k - \sum_{k=1}^66 15k
@@ -23,12 +21,12 @@ int main(){
   
   int bound=1000;
   int res = sum_mult_under(3,bound) + sum_mult_under(5,bound) - sum_mult_under(15,bound);
-  cout<< res <<endl;
+  std::cout<< res << '\n';
 
   
   clock_t end = clock();
   double time_spent = (double)(end-begin)/CLOCKS_PER_SEC;
-  cout<<"Execution time :"<<time_spent<<endl;
+  std::cout<<"Execution time :"<<time_spent<<'\n';
   return 0;
 }
 
