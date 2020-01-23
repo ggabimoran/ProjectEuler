@@ -17,29 +17,30 @@ Ainsi, le terme F_{3n+2} dépasse alpha lorsque n > log(alpha/(1+2/sqrt(5)))/log
 On applique avec alpha = 4 million et on trouve N.
  */
 
-int sum_even_fibo_terms(int nmax){
+long sum_even_fibo_terms(long nmax){
   assert(nmax >= 0);
   double r_1 = 2 + sqrt(5);
   double r_2 = 2 - sqrt(5);
   double A = (1+2/sqrt(5));
   double B = (1-2/sqrt(5));
   double res = A * (1-std::pow(r_1,nmax+1))/(1-r_1) + B * (1-std::pow(r_2,nmax+1))/(1-r_2);
-  return res;
+  return std::lround(res);
 }
 
-int sum_even_fibo_under(int alpha){
+long sum_even_fibo_under(int alpha){
   assert(alpha>0);
   double r_1 = 2 + sqrt(5);
   double A = (1+2/sqrt(5));
-  int nmax=std::floor(std::log(alpha/A)/std::log(r_1));
+  long nmax=std::lround(std::floor(std::log(alpha/A)/std::log(r_1)));
   return sum_even_fibo_terms(nmax);
 }
 
 int main(){
   clock_t begin = clock();
 
-  
-  int res = sum_even_fibo_under(4000000);
+
+  long bound = 4000000;
+  long res = sum_even_fibo_under(bound);
   std::cout << res << '\n';
 
   

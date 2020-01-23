@@ -2,14 +2,14 @@
 #include<cmath>
 #include<cassert>
 
-bool is_prime(std::int_fast64_t n){
+bool is_prime(long long n){
   if (n <= 1) return false;
-  for (int i=2;i<(std::floor(std::sqrt(n))+1);++i)
+  for (long long i=2;i<(std::llround(std::floor(std::sqrt(n)))+1);++i)
     if (n % i == 0) return false;
   return true;
 }
 
-std::int_fast64_t largest_prime_factor(std::int_fast64_t n){
+long long largest_prime_factor(long long n){
   assert(n>=2);
   int i=2;
   while (!is_prime(n)){
@@ -25,8 +25,9 @@ std::int_fast64_t largest_prime_factor(std::int_fast64_t n){
 int main(){
   clock_t begin = clock();
 
-  
-  std::cout << largest_prime_factor(600851475143) << '\n';
+
+  long long number{600851475143};
+  std::cout << largest_prime_factor(number) << '\n';
 
   clock_t end = clock();
   double time_spent = (double)(end-begin)/CLOCKS_PER_SEC;

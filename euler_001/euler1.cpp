@@ -8,7 +8,7 @@ La somme en question est égal à :
 Puis on applique la formule \sum_{k=1}^N = N(N+1)/2
  */
 
-int sum_mult_under(int multiple,int bound){
+long sum_mult_under(int multiple,int bound){
   assert(multiple!=0);
   int quotient=bound/multiple;
   int n_terms=(bound % multiple == 0) ? (quotient - 1) : quotient;
@@ -20,7 +20,9 @@ int main(){
 
   
   int bound=1000;
-  int res = sum_mult_under(3,bound) + sum_mult_under(5,bound) - sum_mult_under(15,bound);
+  int mult1 = 3;
+  int mult2 = 5;
+  long res = sum_mult_under(mult1,bound) + sum_mult_under(mult2,bound) - sum_mult_under(mult1*mult2,bound);
   std::cout<< res << '\n';
 
   
