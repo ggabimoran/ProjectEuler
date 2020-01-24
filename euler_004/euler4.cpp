@@ -24,8 +24,8 @@ long largest_palindrome_prod(int ndigits){
   assert(ndigits >=2 && ndigits <= 3);
   long largest_palindrome{};
   long current_prod{};
-  int lower_bound = std::pow(10,ndigits-1);
-  int upper_bound = std::pow(10,ndigits);
+  int lower_bound = static_cast<int>(std::pow(10,ndigits-1));
+  int upper_bound = static_cast<int>(std::pow(10,ndigits));
   for (int i=lower_bound;i<upper_bound;++i){
     //a * b = b * a thus no need to check same product twice
     for (int j=i;j<upper_bound;++j){
