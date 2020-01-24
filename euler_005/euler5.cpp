@@ -46,7 +46,7 @@ long smallest_evenly_divisible(int max){
   }
   int length=prime_factors.size();
   int prod{1};
-  for (int i=0;i<length;++i) prod *= std::pow(prime_factors[i],prime_factors_mult[i]);
+  for (int i=0;i<length;++i) prod *= static_cast<int>(std::pow(prime_factors[i],prime_factors_mult[i]));
   return prod;
 }
 
